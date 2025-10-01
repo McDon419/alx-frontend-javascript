@@ -8,7 +8,12 @@ interface Teacher {
   [propName: string]: any;    // allow additional attributes
 }
 
-// Example object
+// Directors interface extending Teacher
+interface Directors extends Teacher {
+  numberOfReports: number; // required attribute
+}
+
+// Example: Teacher object
 const teacher3: Teacher = {
   firstName: 'John',
   lastName: 'Doe',
@@ -18,3 +23,14 @@ const teacher3: Teacher = {
 };
 
 console.log(teacher3);
+
+// Example: Director object
+const director1: Directors = {
+  firstName: 'John',
+  lastName: 'Doe',
+  location: 'London',
+  fullTimeEmployee: true,
+  numberOfReports: 17,
+};
+
+console.log(director1);
