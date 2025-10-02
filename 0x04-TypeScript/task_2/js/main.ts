@@ -17,9 +17,11 @@ export class Director implements DirectorInterface {
   workFromHome(): string {
     return "Working from home";
   }
+
   getCoffeeBreak(): string {
     return "Getting a coffee break";
   }
+
   workDirectorTasks(): string {
     return "Getting to director tasks";
   }
@@ -30,9 +32,11 @@ export class Teacher implements TeacherInterface {
   workFromHome(): string {
     return "Cannot work from home";
   }
+
   getCoffeeBreak(): string {
     return "Cannot have a break";
   }
+
   workTeacherTasks(): string {
     return "Getting to work";
   }
@@ -47,10 +51,10 @@ export function createEmployee(salary: number | string): Director | Teacher {
 }
 
 // ---------------------------
-// NEW PART: type predicate + executeWork
+// Required functions
 // ---------------------------
 
-// Type predicate
+// isDirector type predicate
 export function isDirector(employee: Director | Teacher): employee is Director {
   return employee instanceof Director;
 }
@@ -63,6 +67,8 @@ export function executeWork(employee: Director | Teacher): string {
   return employee.workTeacherTasks();
 }
 
+// ---------------------------
 // Example usage
+// ---------------------------
 console.log(executeWork(createEmployee(200)));   // Getting to work
 console.log(executeWork(createEmployee(1000)));  // Getting to director tasks
